@@ -11,7 +11,7 @@ script:
 deploy:
   edge: true
   provider: elasticbeanstalk
-  region: ap-northeast-2
+  region: ap-northeast-2 # 현재 사용하고 있는 AWS 의 서비스가 위치하고 있는 물리적 장소
   app: docker-react-app
   env: Docker-react-app-env
   bucket_name: elasticbeanstalk-ap-northeast-2-415603219820
