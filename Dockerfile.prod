@@ -8,8 +8,8 @@ RUN npm install
 
 COPY ./ ./
 
-RUN npm run build
-
+# RUN npm run build
+RUN chmod -R 777 /usr/src/app
 
 FROM nginx
 #컨테이너에서 매핑할 네트워크 포트 정의, NginX 가 80번 기본포트 사용
