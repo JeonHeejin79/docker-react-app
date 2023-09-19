@@ -1,16 +1,27 @@
+# 빌드 ~ 테스트
 sudo: required # 관리자 권한갖기
-
 language: generic # 언어(플랫폼)을 선택
-
 services: # 도커환경 구성
   - docker
-
 before_install: # 스크립트를 싱행할 수 있는 환경설정파일
   - echo "start Createing an image with dockerfile"
   - docker build -t wjsgmlwls79/docker-react-app -f Dockerfile.dev .
-
 script: # 실행할 스크립트 (테스트 실행)
   - docker run -e CI=true wjsgmlwls79/docker-react-app npm run test -- --coverage
-
 after_success: # 테스트 성공 후 할일
   - echo "Test Success"
+
+# 배포
+deploy: 
+  provider: eleasticbeanstalk # 외부 서비스 표시 (s3, elasticbeanstalk, firebase 등)
+  region: "ap-northeast-2" # 현재 사용하고 있는 AWS의 서비스가 위치하고 있는 물리적 장소
+  app: "docker-react-app" # 생성된 어플리케이션의 이름
+  env: "Docker-react-app-env" # EB envirionment name
+  bucket_name: "elasticbeanstalk-ap-northeast-2-415603219820" # 해당 elasticbeanstalk 을 위한 s3 버켓 이름 s3 bucket name for elasticbeanstalk (storage server)
+  bucket_path: "docker-react-app" # 어플리케이션 이름과 동일
+  on:
+    branch: master # 어떤 브랜치에 Push 를 할때 AWS에 배포를 할 것인지
+
+# AWS 인증 토큰 설정
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_ACCESS_KEY
