@@ -12,7 +12,8 @@ after_success: # 테스트 성공 후 할일
   - echo "Test Success"
 
 # 배포
-deploy: 
+deploy:
+  edge: true
   provider: elasticbeanstalk # 외부 서비스 표시 (s3, elasticbeanstalk, firebase 등)
   region: ap-northeast-2 # 현재 사용하고 있는 AWS의 서비스가 위치하고 있는 물리적 장소
   app: docker-react-app # 생성된 어플리케이션의 이름
