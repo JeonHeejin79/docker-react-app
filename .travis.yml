@@ -22,6 +22,6 @@ deploy:
   on:
     branch: master # 어떤 브랜치에 Push 를 할때 AWS에 배포를 할 것인지
 
-# AWS 인증 토큰 설정
-access_key_id: $AWS_ACCESS_KEY
-secret_access_key: $AWS_SECRET_ACCESS_KEY
+  # AWS 인증 토큰 설정
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
