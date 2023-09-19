@@ -17,7 +17,7 @@ deploy:
   region: "ap-northeast-2" # 현재 사용하고 있는 AWS의 서비스가 위치하고 있는 물리적 장소
   app: "docker-react-app" # 생성된 어플리케이션의 이름
   env: "Docker-react-app-env" # EB envirionment name
-  bucket_name: "elasticbeanstalk-ap-southeast-2-415603219820" # 해당 elasticbeanstalk 을 위한 s3 버켓 이름 s3 bucket name for elasticbeanstalk (storage server)
+  bucket_name: "elasticbeanstalk-ap-northeast-2-415603219820" # 해당 elasticbeanstalk 을 위한 s3 버켓 이름 s3 bucket name for elasticbeanstalk (storage server)
   bucket_path: "docker-react-app" # 어플리케이션 이름과 동일
   on:
     branch: master # 어떤 브랜치에 Push 를 할때 AWS에 배포를 할 것인지
